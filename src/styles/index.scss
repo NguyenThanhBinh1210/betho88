@@ -84,3 +84,8 @@ body::-webkit-scrollbar-thumb {
     /* Firefox */
   }
 }
+
+button.flex.py-4.w-full.h-full.gap-3.items-center.tap-highlight-transparent.outline-none {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}

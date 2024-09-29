@@ -1,11 +1,15 @@
-import { Button } from '@nextui-org/react'
+import { Button, Checkbox, Modal, ModalBody, ModalContent, useDisclosure } from '@nextui-org/react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import IconBg from '../icons/IconBg'
 import { menu } from '~/constants/renaral.const'
+import { MailIcon } from '../icons/MailIcon'
+import { LockIcon } from '../icons/LockIcon'
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
   const [showNav, setShowNav] = useState(false)
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+
   return (
     <>
       <header className='text-white z-30 relative'>
@@ -46,7 +50,12 @@ const Header = () => {
               <Button className='text-white p-2 text-base rounded md:py-5 leading-4' size='sm' color='primary'>
                 Tham gia ngay
               </Button>
-              <Button className='text-white p-2 text-base rounded md:py-5 leading-4' size='sm' color='warning'>
+              <Button
+                onPress={onOpen}
+                className='text-white p-2 text-base rounded md:py-5 leading-4'
+                size='sm'
+                color='warning'
+              >
                 Đăng nhập
               </Button>
               <Button onClick={() => setShowMenu(true)} isIconOnly variant='light' size='sm' className='lg:hidden'>
@@ -68,7 +77,9 @@ const Header = () => {
       <div
         onMouseEnter={() => setShowNav(true)}
         onMouseLeave={() => setShowNav(false)}
-        className={`bg-[#171a47] hidden lg:block w-full py-3 transition-all fixed z-10 ${showNav ? "opacity-100 visible -translate-y-0" : 'opacity-0 invisible -translate-y-1/2'} `}>
+        className={`bg-[#171a47] hidden lg:block w-full py-3 transition-all fixed z-10 ${showNav ? 'opacity-100 visible -translate-y-0' : 'opacity-0 invisible -translate-y-1/2'
+          } `}
+      >
         <div className='max-w-[1342px] w-full mx-auto 2xl:px-0 grid grid-cols-7 gap-3'>
           {menu.map((item, index) => (
             <div
@@ -131,6 +142,35 @@ const Header = () => {
           </Button>
         </div>
       </div>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent className='bg-transparent border-[#4653e8] border'>
+          {() => (
+            <>
+              <ModalBody className='bg-[#363b73db]  py-4'>
+                <p className='text-white mx-auto text-2xl pb-2 mb-2 border-orange-500 w-max border-b-2'>Đăng nhập</p>
+                <div className='bg-[#5b67b3] flex items-center px-2 py-3 rounded-md gap-x-3'>
+                  <div className='text-white'>
+                    <MailIcon className='size-6'></MailIcon>
+                  </div>
+                  <input type='text' className='w-full border-l pl-3 text-white' placeholder='Tên truy cập' />
+                </div>
+                <div className='bg-[#5b67b3] flex items-center px-2 py-3 rounded-md gap-x-3'>
+                  <div className='text-white'>
+                    <LockIcon className='size-6'></LockIcon>
+                  </div>
+                  <input type='password' className='w-full border-l pl-3 text-white' placeholder='Mật khẩu' />
+                </div>
+                <Checkbox color='warning' className='text-white my-1'>
+                  <div className='text-white text-sm'>Nhớ tên người dùng</div>
+                </Checkbox>
+                <Button size='lg' color='warning'>
+                  <div className='text-lg text-white py-2'>Đăng nhập</div>
+                </Button>
+              </ModalBody>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </>
   )
 }

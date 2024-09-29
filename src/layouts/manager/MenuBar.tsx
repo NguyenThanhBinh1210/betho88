@@ -13,7 +13,9 @@ const MenuBar = () => {
       {menuController.map((item) => (
         <Link
           key={item.path}
-          to={item.path}
+          to={{
+            pathname: item.path,
+          }}
           className={` ${item.path === location ? 'text-[#19e5e6]' : 'text-[#ffffff61]'
             }  text-xs flex flex-col items-center gap-1 py-1.5`}
         >

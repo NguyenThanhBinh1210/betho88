@@ -11,18 +11,10 @@ import LobbyPage from '~/pages/Controller/LobbyPage'
 import ManagerLayout from '~/layouts/ManagerLayout'
 import TiSo from '~/pages/Controller/TiSo'
 import SaoKe from '~/pages/Controller/SaoKe'
-import Result from '~/pages/Controller/Result'
 import Profile from '~/pages/Controller/Profile'
 
 const useRouteElements = () => {
-  // function ProtecedRoute() {
-  //   const { isAuthenticated } = useContext(AppContext)
-  //   return isAuthenticated ? <Outlet /> : <Navigate to='login' />
-  // }
-  // function RejectedRoute() {
-  //   const { isAuthenticated } = useContext(AppContext)
-  //   return !isAuthenticated ? <Outlet /> : <Navigate to='/' />
-  // }
+
   const routeElements = useRoutes([
     {
       path: 'login',
@@ -77,7 +69,7 @@ const useRouteElements = () => {
       path: '/result',
       element: (
         <ManagerLayout>
-          <Result />
+          <SaoKe />
         </ManagerLayout>
       )
     },

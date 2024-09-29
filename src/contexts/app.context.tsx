@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState } from 'react'
 import { Profile } from '~/types/auth.type'
@@ -9,12 +11,16 @@ interface AppContextInterface {
   profile: Profile | null
   setProfile: React.Dispatch<React.SetStateAction<Profile | null>>
   reset: () => void
+  selectedTab: string,
+  setSelectedTab: any,
 }
 export const getInitialAppContext: () => AppContextInterface = () => ({
   isAuthenticated: Boolean(!getAccessTokenFromLS()),
   setIsAuthenticated: () => null,
   profile: getProfileFromLS(),
   setProfile: () => null,
+  selectedTab: 'mo',
+  setSelectedTab: () => null,
   reset: () => null
 })
 const initialAppContext = getInitialAppContext()
@@ -22,6 +28,7 @@ const initialAppContext = getInitialAppContext()
 export const AppContext = createContext<AppContextInterface>(initialAppContext)
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
+  const [selectedTab, setSelectedTab] = useState<string>(initialAppContext.selectedTab)
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(initialAppContext.isAuthenticated)
   const [profile, setProfile] = useState<Profile | null>(initialAppContext.profile)
   const reset = () => {
@@ -29,6 +36,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     setProfile(null)
     clearLS()
   }
+
   return (
     <AppContext.Provider
       value={{
@@ -36,7 +44,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setIsAuthenticated,
         profile,
         setProfile,
-        reset
+        reset,
+        setSelectedTab,
+        selectedTab
       }}
     >
       {children}
