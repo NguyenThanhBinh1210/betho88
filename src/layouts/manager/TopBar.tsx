@@ -2,13 +2,13 @@
 // import { Popover, PopoverHandler, PopoverContent } from '@material-tailwind/react'
 import { Button } from '@nextui-org/react'
 import { Link } from 'react-router-dom'
-import { Popover, PopoverTrigger, PopoverContent, User } from "@nextui-org/react";
+import { Popover, PopoverTrigger, PopoverContent, User } from '@nextui-org/react'
 
 const TopBar = ({ onShow }: { onShow: () => void }) => {
   return (
     <div className='py-3 px-3 border-b z-10 sticky top-0 left-0 flex justify-between bg-white'>
       <div className='flex items-center gap-x-2'>
-        <Button isIconOnly variant="light" onClick={onShow} >
+        <Button isIconOnly variant='light' onClick={onShow}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -20,7 +20,7 @@ const TopBar = ({ onShow }: { onShow: () => void }) => {
             <path strokeLinecap='round' strokeLinejoin='round' d='M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5' />
           </svg>
         </Button>
-        <Button isIconOnly className='rounded-full bg-orange-50' >
+        <Button isIconOnly className='rounded-full bg-orange-50'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -36,7 +36,7 @@ const TopBar = ({ onShow }: { onShow: () => void }) => {
             />
           </svg>
         </Button>
-        <Button isIconOnly className='rounded-full bg-orange-50' >
+        <Button isIconOnly className='rounded-full bg-orange-50'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -52,7 +52,7 @@ const TopBar = ({ onShow }: { onShow: () => void }) => {
             />
           </svg>
         </Button>
-        <Button isIconOnly variant="light" className='rounded-full ' >
+        <Button isIconOnly variant='light' className='rounded-full '>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -68,7 +68,7 @@ const TopBar = ({ onShow }: { onShow: () => void }) => {
             />
           </svg>
         </Button>
-        <Button isIconOnly className='rounded-full bg-orange-50' >
+        <Button isIconOnly className='rounded-full bg-orange-50'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -82,19 +82,19 @@ const TopBar = ({ onShow }: { onShow: () => void }) => {
         </Button>
       </div>
       <div className='flex items-center gap-x-3 md:mr-10 '>
-        <Popover showArrow placement="bottom">
+        <Popover showArrow placement='bottom'>
           <PopoverTrigger>
             <User
-              as="button"
-              name="Nguyen Thanh Binh"
-              description="Manager"
-              className="transition-transform"
+              as='button'
+              name='Nguyen Thanh Binh'
+              description='Manager'
+              className='transition-transform'
               avatarProps={{
-                src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
+                src: 'https://i.pravatar.cc/150?u=a04258114e29026702d'
               }}
             />
           </PopoverTrigger>
-          <PopoverContent className="p-1">
+          <PopoverContent className='p-1'>
             <ul className='w-[220px]'>
               <li>
                 <Link

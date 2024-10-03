@@ -1,9 +1,22 @@
-import { Accordion, AccordionItem } from '@nextui-org/react'
+import { Accordion, AccordionItem, Button } from '@nextui-org/react'
+import { useState } from 'react'
+import Betting from '~/components/Profile/Betting'
+import ChangeLanguage from '~/components/Profile/ChangeLanguage'
+import ChangePassword from '~/components/Profile/ChangePassword'
+import ChangeUsername from '~/components/Profile/ChangeUsername'
+import DefaultBet from '~/components/Profile/DefaultBet'
+import FastBet from '~/components/Profile/FastBet'
+import HelpNewbie from '~/components/Profile/HelpNewbie'
+import MatchArrangement from '~/components/Profile/MatchArrangement'
+import SetContact from '~/components/Profile/SetContact'
+import SportBot from '~/components/Profile/SportBot'
+import TypeExchangeRate from '~/components/Profile/TypeExchangeRate'
 
 const Profile = () => {
+  const [functionActive, setFunctionActive] = useState<string>('')
   return (
     <div>
-      <div className='bg-[#0a3a5c] static top-0 py-3 px-2 text-white font-bold'>Tôi</div>
+      <div className='bg-[#0a3a5c] sticky top-0 py-3 px-2 text-white font-bold'>Tôi</div>
       <div className='p-2 py-3 text-[#74dcdc]'>
         <div className='px-1 flex justify-between mb-5'>
           <div className='flex gap-1'>
@@ -25,7 +38,7 @@ const Profile = () => {
               <p>U4W0012120</p>
               <p className='text-xs'>Loại tiền tệ : UT</p>
             </div>
-            <div className='mt-1 h-max cursor-pointer'>
+            <div className='mt-1 h-max cursor-pointer ' onClick={() => setFunctionActive('username')}>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
@@ -112,12 +125,190 @@ const Profile = () => {
           </AccordionItem>
         </Accordion>
         <div className='px-2'>
-
-          <div className='mt-3  border border-[#0a3a5c] rounded-lg p-3'>
-            s
+          <div className='mt-3  border border-[#0a3a5c] rounded-lg p-3 text-white grid grid-cols-4 gap-4'>
+            <div
+              onClick={() => setFunctionActive('type-exchange-rate')}
+              className=' cursor-pointer flex flex-col justify-start text-center items-center'
+            >
+              <div className='bg-[#0a3a5c] rounded-md w-11 h-11'></div>
+              <p className='text-xs mt-1'>Loại tỉ lệ cược</p>
+            </div>
+            <div
+              onClick={() => setFunctionActive('default-bet')}
+              className=' cursor-pointer flex flex-col justify-start text-center items-center'
+            >
+              <div className='bg-[#0a3a5c] rounded-md w-11 h-11'></div>
+              <p className='text-xs mt-1'>Tiền cược mặc định</p>
+            </div>
+            <div
+              onClick={() => setFunctionActive('fast-bet')}
+              className=' cursor-pointer flex flex-col justify-start text-center items-center'
+            >
+              <div className='bg-[#0a3a5c] rounded-md w-11 h-11'></div>
+              <p className='text-xs mt-1'>Tiền cược nhanh</p>
+            </div>
+            <div
+              onClick={() => setFunctionActive('betting')}
+              className=' cursor-pointer flex flex-col justify-start text-center items-center'
+            >
+              <div className='bg-[#0a3a5c] rounded-md w-11 h-11'></div>
+              <p className='text-xs mt-1'>Đang cược</p>
+            </div>
+            <div
+              onClick={() => setFunctionActive('match-arrangement')}
+              className=' cursor-pointer flex flex-col justify-start text-center items-center'
+            >
+              <div className='bg-[#0a3a5c] rounded-md w-11 h-11'></div>
+              <p className='text-xs mt-1'>Sắp xếp trận đấu</p>
+            </div>
+            <div className=' cursor-pointer flex flex-col justify-start text-center items-center'>
+              <div className='bg-[#0a3a5c] rounded-md w-11 h-11'></div>
+              <p className='text-xs mt-1'>Môn thể thao ưu tiên</p>
+            </div>
+            <div
+              onClick={() => setFunctionActive('help-newbie')}
+              className=' cursor-pointer flex flex-col justify-start text-center items-center'
+            >
+              <div className='bg-[#0a3a5c] rounded-md w-11 h-11'></div>
+              <p className='text-xs mt-1'>Người mới giúp đỡ</p>
+            </div>
           </div>
         </div>
+        <div className='px-2 text-white text-xs mt-2'>
+          <div
+            onClick={() => setFunctionActive('password')}
+            className='flex justify-between items-center py-4 border-b border-gray-700 cursor-pointer'
+          >
+            <p>Cài đặt mật khẩu</p>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              strokeWidth={1.5}
+              stroke='currentColor'
+              className='size-4'
+            >
+              <path strokeLinecap='round' strokeLinejoin='round' d='m8.25 4.5 7.5 7.5-7.5 7.5' />
+            </svg>
+          </div>
+          <div
+            onClick={() => setFunctionActive('language')}
+            className='flex justify-between items-center py-4 border-b border-gray-700 cursor-pointer'
+          >
+            <p>Ngôn ngữ</p>
+            <div className=' flex items-center gap-2'>
+              <p className='text-[#74dcdc]'>Tiếng Việt</p>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                strokeWidth={1.5}
+                stroke='currentColor'
+                className='size-4'
+              >
+                <path strokeLinecap='round' strokeLinejoin='round' d='m8.25 4.5 7.5 7.5-7.5 7.5' />
+              </svg>
+            </div>
+          </div>
+          <div
+            onClick={() => setFunctionActive('sportsbook')}
+            className='flex justify-between items-center py-4 border-b border-gray-700 cursor-pointer'
+          >
+            <p>Sportsbook Bot</p>
+            <div className=' flex items-center gap-2'>
+              <p className='text-[#74dcdc]'>Đã huỷ liên kết tài khoản</p>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                strokeWidth={1.5}
+                stroke='currentColor'
+                className='size-4'
+              >
+                <path strokeLinecap='round' strokeLinejoin='round' d='m8.25 4.5 7.5 7.5-7.5 7.5' />
+              </svg>
+            </div>
+          </div>
+          <div
+            onClick={() => setFunctionActive('contact')}
+            className='flex justify-between items-center py-4 border-b border-gray-700 cursor-pointer'
+          >
+            <p>Liên hệ</p>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              strokeWidth={1.5}
+              stroke='currentColor'
+              className='size-4'
+            >
+              <path strokeLinecap='round' strokeLinejoin='round' d='m8.25 4.5 7.5 7.5-7.5 7.5' />
+            </svg>
+          </div>
+          <div className='flex justify-between items-center py-4 border-b border-gray-700 cursor-pointer'>
+            <p>Tin tài khoản</p>
+            <div className=' flex flex-col text-end'>
+              <p>Truy cập gần nhất : 2024/10/3 07:35:00</p>
+              <p>Giao dịch gần nhất : 2024/10/3 07:36:13</p>
+            </div>
+          </div>
+          <div className=' py-4 border-b border-gray-700'>
+            <p>Phiên bản</p>
+            <div className='grid grid-cols-2 mt-2 border border-[#ffffff29] rounded'>
+              <div className='cursor-pointer flex items-center justify-center gap-2 py-2 bg-[#0a3a5c] text-white'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  strokeWidth={1.5}
+                  stroke='currentColor'
+                  className='size-4'
+                >
+                  <path strokeLinecap='round' strokeLinejoin='round' d='m4.5 12.75 6 6 9-13.5' />
+                </svg>
+
+                <p>Rút gọn</p>
+              </div>
+              <div className='cursor-pointer flex items-center justify-center gap-2 py-2 text-[#74dcdc] '>
+                <p>Tiêu chuẩn</p>
+              </div>
+            </div>
+            <div className='mt-2 border border-[#0a3a5c] rounded flex items-center justify-center gap-2 py-2 bg-[#081421]'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                strokeWidth={1.5}
+                stroke='currentColor'
+                className='size-4'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5'
+                />
+              </svg>
+
+              <p>Chuyển sang phiên bản dành cho người có kinh nghiệm</p>
+            </div>
+          </div>
+
+          <Button variant='light' className='font-semibold text-[#74dcdc] block mx-auto mt-3'>
+            Thoát
+          </Button>
+        </div>
       </div>
+      <ChangePassword show={functionActive === 'password'} onClose={() => setFunctionActive('')} />
+      <ChangeUsername show={functionActive === 'username'} onClose={() => setFunctionActive('')} />
+      <ChangeLanguage show={functionActive === 'language'} onClose={() => setFunctionActive('')} />
+      <SportBot show={functionActive === 'sportsbook'} onClose={() => setFunctionActive('')} />
+      <SetContact show={functionActive === 'contact'} onClose={() => setFunctionActive('')} />
+      <TypeExchangeRate show={functionActive === 'type-exchange-rate'} onClose={() => setFunctionActive('')} />
+      <DefaultBet show={functionActive === 'default-bet'} onClose={() => setFunctionActive('')} />
+      <FastBet show={functionActive === 'fast-bet'} onClose={() => setFunctionActive('')} />
+      <Betting show={functionActive === 'betting'} onClose={() => setFunctionActive('')} />
+      <MatchArrangement show={functionActive === 'match-arrangement'} onClose={() => setFunctionActive('')} />
+      <HelpNewbie show={functionActive === 'help-newbie'} onClose={() => setFunctionActive('')} />
     </div>
   )
 }

@@ -7,16 +7,18 @@ const HomeResults = () => {
       <div className='flex items-center justify-center gap-x-10 md:gap-x-16 w-full bg-[#262b69] border-b-[#5258bc] '>
         <button
           onClick={() => setTabActice(1)}
-          className={` md:text-xl py-2 border-b-3 ${tabActive === 1 ? 'border-orange-400' : ' text-gray-300 hover:scale-95 border-transparent'
-            } transition-all `}
+          className={` md:text-xl py-2 border-b-3 ${
+            tabActive === 1 ? 'border-orange-400' : ' text-gray-300 hover:scale-95 border-transparent'
+          } transition-all `}
         >
           Hôm Nay
         </button>
         <div className='h-[20px] bg-[#7d81c9] border-[#5258bc] w-[1px]'></div>
         <button
           onClick={() => setTabActice(2)}
-          className={` md:text-xl py-2 border-b-3 ${tabActive === 2 ? 'border-orange-400' : ' text-gray-300 hover:scale-95 border-transparent'
-            } transition-all `}
+          className={` md:text-xl py-2 border-b-3 ${
+            tabActive === 2 ? 'border-orange-400' : ' text-gray-300 hover:scale-95 border-transparent'
+          } transition-all `}
         >
           Kết quả
         </button>
@@ -84,22 +86,25 @@ const TabSport = () => {
     <div className='mt-3 grid grid-cols-3 gap-3 w-full sm:max-w-[765px]  mx-auto'>
       <button
         onClick={() => setTabActice(1)}
-        className={`rounded transition-all border text-gray-400 py-2 border-[#5258bc] ${tabActive === 1 ? 'bg-[#5b67b3] text-white' : 'hover:bg-[#262b69]'
-          } `}
+        className={`rounded transition-all border text-gray-400 py-2 border-[#5258bc] ${
+          tabActive === 1 ? 'bg-[#5b67b3] text-white' : 'hover:bg-[#262b69]'
+        } `}
       >
         Bóng đá
       </button>
       <button
         onClick={() => setTabActice(2)}
-        className={`rounded transition-all border text-gray-400 py-2 border-[#5258bc] ${tabActive === 2 ? 'bg-[#5b67b3] text-white' : 'hover:bg-[#262b69]'
-          } `}
+        className={`rounded transition-all border text-gray-400 py-2 border-[#5258bc] ${
+          tabActive === 2 ? 'bg-[#5b67b3] text-white' : 'hover:bg-[#262b69]'
+        } `}
       >
         Bóng rổ
       </button>
       <button
         onClick={() => setTabActice(3)}
-        className={`rounded transition-all border text-gray-400 py-2 border-[#5258bc] ${tabActive === 3 ? 'bg-[#5b67b3] text-white' : 'hover:bg-[#262b69]'
-          } `}
+        className={`rounded transition-all border text-gray-400 py-2 border-[#5258bc] ${
+          tabActive === 3 ? 'bg-[#5b67b3] text-white' : 'hover:bg-[#262b69]'
+        } `}
       >
         Cricket
       </button>
@@ -146,8 +151,9 @@ const TabDay = () => {
           <button
             key={item.text}
             onClick={() => setTabActice(item.text)}
-            className={`text-xl py-2 border-b-3 ${tabActive === item.text ? 'border-orange-400' : ' text-gray-300 hover:scale-95 border-transparent'
-              } transition-all `}
+            className={`text-xl py-2 border-b-3 ${
+              tabActive === item.text ? 'border-orange-400' : ' text-gray-300 hover:scale-95 border-transparent'
+            } transition-all `}
           >
             <p className='md:leading-5  text-sm md:text-xl'>{item.day}</p>
             <p className='text-xs md:text-sm'>{item.text}</p>

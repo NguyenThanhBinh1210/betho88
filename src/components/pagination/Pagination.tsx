@@ -79,8 +79,9 @@ const Pagination = ({ page, setPage, pageSize, arrowClass }: Props) => {
         }}
       >
         <button
-          className={`flex items-center justify-center ${arrowClass ? arrowClass : 'w-[30px] h-[30px] rounded-[10px] font-[600] text-[16px]'
-            } ${!(page === 1) && 'hover:shadow-md shadow-xl'}`}
+          className={`flex items-center justify-center ${
+            arrowClass ? arrowClass : 'w-[30px] h-[30px] rounded-[10px] font-[600] text-[16px]'
+          } ${!(page === 1) && 'hover:shadow-md shadow-xl'}`}
         >
           <svg width='8' height='12' viewBox='0 0 8 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path d='M7 1L2 6L7 11' stroke='#A2A2A8' strokeWidth='1.5' />
@@ -96,8 +97,9 @@ const Pagination = ({ page, setPage, pageSize, arrowClass }: Props) => {
         }}
       >
         <button
-          className={`flex items-center justify-center ${arrowClass ? arrowClass : 'w-[30px] h-[30px] rounded-[10px] font-[600] text-[16px]'
-            } ${!(page === pageSize) && 'hover:shadow-md shadow-xl'}`}
+          className={`flex items-center justify-center ${
+            arrowClass ? arrowClass : 'w-[30px] h-[30px] rounded-[10px] font-[600] text-[16px]'
+          } ${!(page === pageSize) && 'hover:shadow-md shadow-xl'}`}
         >
           <svg width='8' height='12' viewBox='0 0 8 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path d='M1 11L6 6L1 1' stroke='#A2A2A8' strokeWidth='1.5' />

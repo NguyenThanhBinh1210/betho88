@@ -11,8 +11,8 @@ interface AppContextInterface {
   profile: Profile | null
   setProfile: React.Dispatch<React.SetStateAction<Profile | null>>
   reset: () => void
-  selectedTab: string,
-  setSelectedTab: any,
+  selectedTab: string
+  setSelectedTab: any
 }
 export const getInitialAppContext: () => AppContextInterface = () => ({
   isAuthenticated: Boolean(!getAccessTokenFromLS()),

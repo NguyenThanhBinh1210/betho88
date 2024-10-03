@@ -1,4 +1,3 @@
-
 import { LayoutPropsInterface } from '~/types/base.type'
 import MenuBar from './manager/MenuBar'
 

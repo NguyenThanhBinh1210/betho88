@@ -67,7 +67,7 @@ const Header = () => {
         <Sliders sliderData={data} />
       </div>
       {showHanMuc && (
-        <div ref={ref} className='fixed text-white top-10 left-0 w-full px-3'>
+        <div ref={ref} className='fixed text-white z-20 top-10 left-0 w-full px-3'>
           <div
             style={{ boxShadow: '0px 8px 20px 0px rgba(5,5,5,0.7)' }}
             className='p-2 border border-[#ffffff1f] rounded-lg bg-gradient-to-b to-[#0b3959] from-[#0c2639]'

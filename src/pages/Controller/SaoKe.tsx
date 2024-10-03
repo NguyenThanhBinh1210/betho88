@@ -98,15 +98,17 @@ const SaoKe = () => {
                     <div className='grid grid-cols-2 gap-2 text-sm  '>
                       <div
                         onClick={() => setSaokeTap('binh-thuong')}
-                        className={` ${saokeTab === 'binh-thuong' ? 'bg-gradient-to-b from-[#075f5f] to-[#18e0e1]' : ''
-                          } cursor-pointer  text-center transition-all duration-500 py-2 border-[#19e5e6] border rounded-l-md`}
+                        className={` ${
+                          saokeTab === 'binh-thuong' ? 'bg-gradient-to-b from-[#075f5f] to-[#18e0e1]' : ''
+                        } cursor-pointer  text-center transition-all duration-500 py-2 border-[#19e5e6] border rounded-l-md`}
                       >
                         Bình thường
                       </div>
                       <div
                         onClick={() => setSaokeTap('bao-cao')}
-                        className={` ${saokeTab === 'bao-cao' ? 'bg-gradient-to-b from-[#075f5f] to-[#18e0e1]' : ''
-                          } cursor-pointer  text-center transition-all duration-500 py-2 border-[#19e5e6] border rounded-r-md`}
+                        className={` ${
+                          saokeTab === 'bao-cao' ? 'bg-gradient-to-b from-[#075f5f] to-[#18e0e1]' : ''
+                        } cursor-pointer  text-center transition-all duration-500 py-2 border-[#19e5e6] border rounded-r-md`}
                       >
                         Báo cáo Thắng/ Thua
                       </div>
@@ -148,15 +150,17 @@ const SaoKe = () => {
             <div className='grid grid-cols-3'>
               <div
                 onClick={() => setSaokeTap('binh-thuong')}
-                className={` ${saokeTab === 'binh-thuong' ? 'bg-gradient-to-b from-[#075f5f] to-[#18e0e1]' : ''
-                  } cursor-pointer  text-center transition-all duration-500 py-2 border-[#19e5e6] border rounded-l-md`}
+                className={` ${
+                  saokeTab === 'binh-thuong' ? 'bg-gradient-to-b from-[#075f5f] to-[#18e0e1]' : ''
+                } cursor-pointer  text-center transition-all duration-500 py-2 border-[#19e5e6] border rounded-l-md`}
               >
                 Hôm qua
               </div>
               <div
                 onClick={() => setSaokeTap('bao-cao')}
-                className={` ${saokeTab === 'bao-cao' ? 'bg-gradient-to-b from-[#075f5f] to-[#18e0e1]' : ''
-                  } cursor-pointer  text-center transition-all duration-500 py-2 border-[#19e5e6] border rounded-r-md`}
+                className={` ${
+                  saokeTab === 'bao-cao' ? 'bg-gradient-to-b from-[#075f5f] to-[#18e0e1]' : ''
+                } cursor-pointer  text-center transition-all duration-500 py-2 border-[#19e5e6] border rounded-r-md`}
               >
                 Hôm nay
               </div>
@@ -180,10 +184,9 @@ const SaoKe = () => {
                 ))}
               </Select>
             </div>
-            <div className='grid grid-cols-5 gap-5 mt-3 items-end'>
+            <div className='grid grid-cols-12 mt-3 gap-10 items-end'>
               <Select
                 color='primary'
-
                 classNames={{
                   value: 'text-white group-data-[has-value=true]:text-white text-center',
                   trigger: 'p-0 border-b-none',
@@ -192,24 +195,25 @@ const SaoKe = () => {
                   innerWrapper:
                     ' pt-0 group-data-[has-label=true]:pt-0 data-[open=true]:after:bg-blue-500 after:bg-blue-500'
                 }}
-                size='sm' className=' col-span-2' variant='underlined' label=' ' placeholder='Bóng đá '>
+                size='sm'
+                className=' col-span-5'
+                variant='underlined'
+                label=' '
+                placeholder='Bóng đá '
+              >
                 {animals.map((animal) => (
                   <SelectItem key={animal.key}>{animal.label}</SelectItem>
                 ))}
               </Select>
-              <Autocomplete
-                color='primary'
-                size='sm'
-                variant='underlined'
-                placeholder='Search an animal'
-                className='col-span-3 '
-              >
-                {animals.map((animal) => (
-                  <AutocompleteItem key={animal.key} value={animal.label}>
-                    {animal.label}
-                  </AutocompleteItem>
-                ))}
-              </Autocomplete>
+              <div className='col-span-6'>
+                <Autocomplete color='primary' size='sm' variant='underlined' placeholder='Search an animal'>
+                  {animals.map((animal) => (
+                    <AutocompleteItem key={animal.key} value={animal.label}>
+                      {animal.label}
+                    </AutocompleteItem>
+                  ))}
+                </Autocomplete>
+              </div>
             </div>
           </>
         )}

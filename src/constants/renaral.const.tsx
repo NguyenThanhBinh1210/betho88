@@ -210,7 +210,6 @@ export const tabList = [
     img: esports_tab,
     key: 'the-tha-dien-tu',
     content: <EsportTab />
-
   },
   {
     title: 'Casino trực tuyến',
