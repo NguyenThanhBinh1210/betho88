@@ -12,6 +12,9 @@ import ManagerLayout from '~/layouts/ManagerLayout'
 import TiSo from '~/pages/Controller/TiSo'
 import SaoKe from '~/pages/Controller/SaoKe'
 import Profile from '~/pages/Controller/Profile'
+import Sport from '~/pages/Controller/Sport'
+import Follow from '~/pages/Controller/Follow'
+import TopController from '~/layouts/manager/TopController'
 
 const useRouteElements = () => {
   const routeElements = useRoutes([
@@ -53,6 +56,24 @@ const useRouteElements = () => {
       element: (
         <ManagerLayout>
           <TiSo />
+        </ManagerLayout>
+      )
+    },
+    {
+      path: '/sport',
+      element: (
+        <ManagerLayout>
+          <TopController />
+          <Sport />
+        </ManagerLayout>
+      )
+    },
+    {
+      path: '/follow',
+      element: (
+        <ManagerLayout>
+          <TopController />
+          <Follow />
         </ManagerLayout>
       )
     },

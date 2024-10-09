@@ -6,7 +6,11 @@ export default {
     extend: {
       colors: {
         bgPrimary: '#131a34',
-        bgSecondary: '#1f2a41'
+        bgSecondary: '#1f2a41',
+        textColor1: '#ffffff8a',
+        borderColor1: '#454c52',
+        borderActive: '#19e5e6',
+        textActive: '#19e5e6'
       },
       filter: {
         'grayscale-50': 'grayscale(50%)'
