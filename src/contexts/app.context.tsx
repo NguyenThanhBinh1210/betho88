@@ -13,6 +13,8 @@ interface AppContextInterface {
   reset: () => void
   selectedTab: string
   setSelectedTab: any
+  theme: string
+  setTheme: any
 }
 export const getInitialAppContext: () => AppContextInterface = () => ({
   isAuthenticated: Boolean(!getAccessTokenFromLS()),
@@ -21,7 +23,9 @@ export const getInitialAppContext: () => AppContextInterface = () => ({
   setProfile: () => null,
   selectedTab: 'mo',
   setSelectedTab: () => null,
-  reset: () => null
+  reset: () => null,
+  theme: 'classic-6',
+  setTheme: () => null
 })
 const initialAppContext = getInitialAppContext()
 
@@ -29,6 +33,7 @@ export const AppContext = createContext<AppContextInterface>(initialAppContext)
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [selectedTab, setSelectedTab] = useState<string>(initialAppContext.selectedTab)
+  const [theme, setTheme] = useState<string>(initialAppContext.theme)
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(initialAppContext.isAuthenticated)
   const [profile, setProfile] = useState<Profile | null>(initialAppContext.profile)
   const reset = () => {
@@ -36,7 +41,6 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     setProfile(null)
     clearLS()
   }
-
   return (
     <AppContext.Provider
       value={{
@@ -46,7 +50,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setProfile,
         reset,
         setSelectedTab,
-        selectedTab
+        selectedTab,
+        theme,
+        setTheme
       }}
     >
       {children}

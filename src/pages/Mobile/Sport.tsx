@@ -107,9 +107,8 @@ const Sport = () => {
           </svg>
         </button>
         <div
-          className={`${
-            expandedTab ? 'opacity-100 visible top-1' : 'opacity-0 invisible -top-full'
-          } border-borderColor1 transition-all font-medium text-sm text-textColor1 border rounded absolute w-[calc(100%-10px)]  p-2 left-1/2 -translate-x-1/2 bg-[#212a31]`}
+          className={`${expandedTab ? 'opacity-100 visible top-1' : 'opacity-0 invisible -top-full'
+            } border-borderColor1 transition-all font-medium text-sm text-textColor1 border rounded absolute w-[calc(100%-10px)]  p-2 left-1/2 -translate-x-1/2 bg-[#212a31]`}
         >
           <div className='flex justify-between px-2 items-center'>
             <p>Mọi môn thể thao</p>
@@ -131,9 +130,8 @@ const Sport = () => {
               <div
                 onClick={() => setSelectedTab(item.key)}
                 key={item.key}
-                className={` ${
-                  selectedTab === item.key ? 'border-borderActive text-textActive' : 'border-borderColor1'
-                }  border p-2 rounded cursor-pointer`}
+                className={` ${selectedTab === item.key ? 'border-borderActive text-textActive' : 'border-borderColor1'
+                  }  border p-2 rounded cursor-pointer`}
               >
                 {item.title}
               </div>
@@ -186,11 +184,9 @@ const Accordion = ({ item }: AccordionProps) => {
   return (
     <div key={item.key} className=' text-xs '>
       <button
-        className={`${
-          item.isLive && 'border-b-red-600 border-b'
-        } w-full text-left py-2 px-2   text-white  rounded focus:outline-none transition-all ${
-          openItems.includes(item.key) ? 'bg-transparent' : 'bg-[#182025]'
-        }`}
+        className={`${item.isLive && 'border-b-red-600 border-b'
+          } w-full text-left py-2 px-2   text-white  rounded focus:outline-none transition-all ${openItems.includes(item.key) ? 'bg-transparent' : 'bg-[#182025]'
+          }`}
         onClick={() => toggleAccordion(item.key)}
       >
         <div className='flex justify-between items-center'>
@@ -236,9 +232,8 @@ const Accordion = ({ item }: AccordionProps) => {
         </div>
       </button>
       <div
-        className={`  rounded-b  overflow-hidden transition-all duration-300 ${
-          openItems.includes(item.key) ? 'max-h-[2000px]' : 'max-h-0'
-        }`}
+        className={`  rounded-b  overflow-hidden transition-all duration-300 ${openItems.includes(item.key) ? 'max-h-[2000px]' : 'max-h-0'
+          }`}
       >
         <div className={`text-white space-y-1`}>
           <AccordionChild />
@@ -254,17 +249,15 @@ const AccordionChild = () => {
   return (
     <div
       onClick={() => setExpanded(true)}
-      className={`border-t ${
-        expanded ? 'h-[190px] items-start' : 'h-[45px] items-center'
-      }  px-2 py-1 border-[#ffffff29] overflow-hidden transition-all rounded bg-[#212a31] flex  justify-between`}
+      className={`border-t ${expanded ? 'h-[190px] items-start' : 'h-[45px] items-center'
+        }  px-2 py-1 border-[#ffffff29] overflow-hidden transition-all rounded bg-[#212a31] flex  justify-between`}
     >
       <div className='w-[37%] pr-3'>
         <div className={`flex  gap-2 text-[13px]  ${expanded ? 'items-start mt-1' : 'items-center'}`}>
           <span>10/19 18:30</span>
           <div
-            className={`space-y-1 pt-1 transition-all ${
-              expanded ? 'opacity-0 invisible -translate-y-full' : 'opacity-100 visible'
-            }`}
+            className={`space-y-1 pt-1 transition-all ${expanded ? 'opacity-0 invisible -translate-y-full' : 'opacity-100 visible'
+              }`}
           >
             <p>Tottenham Hotspur</p>
             <p>West Ham United</p>
@@ -328,9 +321,8 @@ const AccordionChild = () => {
         </div>
       </div>
       <div
-        className={`${
-          expanded ? 'translate-y-0' : 'translate-y-36'
-        } transition-all flex w-full flex-1 overflow-x-auto text-white px-1 `}
+        className={`${expanded ? 'translate-y-0' : 'translate-y-36'
+          } transition-all flex w-full flex-1 overflow-x-auto text-white px-1 `}
       >
         <div className='min-w-[200%] w-max grid grid-cols-6 gap-1.5 gap-x-2'>
           <div className='text-center text-textActive pt-1 pb-2'>Toàn Trận - Cược Chấp</div>
