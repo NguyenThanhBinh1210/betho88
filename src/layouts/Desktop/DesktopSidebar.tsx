@@ -64,7 +64,7 @@ const DesktopSidebar = () => {
     setIsOpen(!isOpen)
   }
   return (
-    <div className='p-2 text-[13px] w-[244px] h-[calc(100vh-112px)] no-scrollbar overflow-y-auto bg-background space-y-2'>
+    <div className='p-2 text-[13px] w-[244px] h-[calc(100vh-120px)] z-[55] fixed no-scrollbar overflow-y-auto bg-background space-y-2'>
       <div className='bg-secondary rounded'>
         <div className='text-textOpacity-200  cursor-pointer p-2 flex justify-between border-b border-borderColor'>
           <div className='flex items-center gap-1'>
@@ -281,8 +281,9 @@ const DesktopSidebar = () => {
           </svg>
         </div>
         <div
-          className={`transition-max-height duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-screen' : 'max-h-0'
-            }`}
+          className={`transition-max-height duration-300 ease-in-out overflow-hidden ${
+            isOpen ? 'max-h-screen' : 'max-h-0'
+          }`}
         >
           <Tabs tabs={tabs} defaultActiveIndex={0} />
           {betCategories.map((item) => (
@@ -405,8 +406,9 @@ export const AccordionWrap: React.FC<AccordionProps> = ({ title, items }) => {
         </svg>
       </div>
       <div
-        className={`transition-max-height duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-screen' : 'max-h-0'
-          }`}
+        className={`transition-max-height duration-300 ease-in-out overflow-hidden h-full ${
+          isOpen ? 'max-h-screen' : 'max-h-0'
+        }`}
       >
         {items.map((item, index) => (
           <div

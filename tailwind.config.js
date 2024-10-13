@@ -37,6 +37,7 @@ export default {
             borderColor: {
               1000: '#008080',
               900: '#ffffff14',
+              undermath: '#f43484',
               DEFAULT: '#ffffff29'
             },
             bgInput: {
@@ -48,6 +49,10 @@ export default {
             },
             textLive: '#e90c68',
             textDanger: '#f43484',
+            buttonCollapse: {
+              hover: '#075288',
+              DEFAULT: '#1e3849'
+            },
             buttonTab: {
               hover: '#075288',
               DEFAULT: '#053b61',
@@ -66,6 +71,9 @@ export default {
             },
             secondary: {
               DEFAULT: '#062337'
+            },
+            thirty: {
+              DEFAULT: '#072a43'
             }
           }
         },

@@ -32,7 +32,7 @@ const bettingOddsTypes: string[] = ['Tỷ lệ cược Decimal', 'Tỷ lệ cư�
 
 const DesktopTopbar = () => {
   return (
-    <header className='bg-primary text-[13px] h-[112px]'>
+    <header className='bg-primary text-[13px] h-[112px] sticky top-0 z-[55]'>
       <div className='flex border-b border-background'>
         <div className='w-[242px]  flex-shrink-0 px-2.5  '>
           <img className='w-full h-full object-cover scale-90' src={logo} alt='logo' loading='lazy' />
@@ -59,13 +59,15 @@ const DesktopTopbar = () => {
           <div className='flex'>
             {categories.map((item) => (
               <div
-                className={`relative cursor-pointer font-bold hover:text-textActive text-sm px-5 ${item === 'Thể Thao' ? 'text-active' : ''
-                  }`}
+                className={`relative cursor-pointer font-bold hover:text-textActive text-sm px-5 ${
+                  item === 'Thể Thao' ? 'text-active' : ''
+                }`}
               >
                 {item}
                 <div
-                  className={`w-full absolute h-1 bg-textActive -bottom-1.5 left-0 ${item === 'Thể Thao' ? 'opacity-100 visible' : 'opacity-0 invisible'
-                    }`}
+                  className={`w-full absolute h-1 bg-textActive -bottom-1.5 left-0 ${
+                    item === 'Thể Thao' ? 'opacity-100 visible' : 'opacity-0 invisible'
+                  }`}
                   style={{ clipPath: 'polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%)' }}
                 ></div>
               </div>

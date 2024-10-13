@@ -58,8 +58,9 @@ const Accordion: React.FC<AccordionProps> = ({ title, betOptions, count }) => {
           {betOptions.map((option, index) => (
             <div
               key={index}
-              className={`flex items-center gap-x-1 px-2 py-1 ${index === 0 ? 'text-textActive' : 'text-textOpacity-800 transition-all hover:text-textActive'
-                }`}
+              className={`flex items-center gap-x-1 px-2 py-1 ${
+                index === 0 ? 'text-textActive' : 'text-textOpacity-800 transition-all hover:text-textActive'
+              }`}
             >
               <div className='w-[22px] h-[22px] flex-shrink-0'></div>
               <p className='line-clamp-1'>
