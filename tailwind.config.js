@@ -9,8 +9,7 @@ export default {
         bgSecondary: '#1f2a41',
         textColor1: '#ffffff8a',
         borderColor1: '#454c52',
-        borderActive: '#19e5e6',
-        textActive: '#19e5e6'
+        borderActive: '#19e5e6'
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(80deg, #053b61 60%, #051e30 100%)'
@@ -24,11 +23,12 @@ export default {
   plugins: [
     nextui({
       themes: {
-        'classic-6': {
+        'modern-6': {
           backgroundImage: {
             'custom-gradient': 'linear-gradient(80deg, #053b61 60%, #051e30 100%)'
           },
           colors: {
+            textActive: '#19e5e6',
             background: '#041725',
             foreground: '#ffffff',
             active: '#19e6e6',
@@ -71,6 +71,60 @@ export default {
             },
             secondary: {
               DEFAULT: '#062337'
+            },
+            thirty: {
+              DEFAULT: '#072a43'
+            }
+          }
+        },
+        'modern-1': {
+          backgroundImage: {
+            'custom-gradient': 'linear-gradient(80deg, #053b61 60%, #051e30 100%)'
+          },
+          colors: {
+            textActive: '#b7e03e',
+            background: '#c9cce8',
+            foreground: '#ffffff',
+            active: '#19e6e6',
+            selectHover: '#0f578a',
+            switch: '#597990',
+            borderColor: {
+              1000: '#008080',
+              900: '#ffffff14',
+              undermath: '#f43484',
+              DEFAULT: '#ffffff29'
+            },
+            bgInput: {
+              900: '#00000052',
+              DEFAULT: '#00000029'
+            },
+            bgOpacity: {
+              100: '#ffffff14'
+            },
+            textLive: '#e90c68',
+            textDanger: '#f43484',
+            buttonCollapse: {
+              hover: '#075288',
+              DEFAULT: '#1e3849'
+            },
+            buttonTab: {
+              hover: '#075288',
+              DEFAULT: '#053b61',
+              active: '#1782cf'
+            },
+            textOpacity: {
+              100: '#abbcc7',
+              200: 'gray',
+              300: '#ffffff8a',
+              800: 'black',
+              900: '#4d55b3',
+              DEFAULT: '#ffffffb3'
+            },
+            primary: {
+              DEFAULT: '#4d55b3'
+            },
+            secondary: {
+              DEFAULT: 'white'
             },
             thirty: {
               DEFAULT: '#072a43'

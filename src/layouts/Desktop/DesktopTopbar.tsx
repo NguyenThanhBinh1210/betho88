@@ -1,7 +1,10 @@
+import { useContext } from 'react'
 import logo from '~/assets/icons/logo_vn_w.svg'
 import Select from '~/components/Select'
 import Switch from '~/components/Switch'
+import { AppContext } from '~/contexts/app.context'
 const languages = ['English', '繁體中文', '日本語', 'Tiếng Việt']
+const themes = ['classic-1', 'classic-2', 'modern-1', 'modern-2', 'modern-3', 'modern-4', 'modern-5', 'modern-6']
 const communicationOptions: string[] = ['Letstalk', 'Zalo', 'Hỗ trợ', 'Skype']
 
 const categories: string[] = [
@@ -31,6 +34,10 @@ const bettingOddsTypes: string[] = ['Tỷ lệ cược Decimal', 'Tỷ lệ cư�
 // ];
 
 const DesktopTopbar = () => {
+  const { setTheme } = useContext(AppContext)
+  const handleChangeThemes = (theme: string) => {
+    setTheme(theme)
+  }
   return (
     <header className='bg-primary text-[13px] h-[112px] sticky top-0 z-[55]'>
       <div className='flex border-b border-background'>
@@ -48,7 +55,7 @@ const DesktopTopbar = () => {
               đồng thời công ty sẽ không chịu trách nhiệm tất cả những thiệt hại gây ra ! Xin cám ơn quý khách .
             </div>
             <div className='space-x-2 flex'>
-              <Select options={languages} defaultValue='Màu sắc chủ đề' />
+              <Select options={themes} defaultValue='Màu sắc chủ đề' onChange={handleChangeThemes} />
               <Select options={languages} defaultValue='Tiếng Việt' />
               {/* <Select options={betOptions} defaultValue="Tất Cả" classNameButton='bg-primary text-textOpacity h-[22px] min-w-0 gap-x-2 border-none' /> */}
               <button className='bg-background hover:text-foreground transition-all hover:bg-opacity-80 text-foreground-400 w-[128px] h-[28px] rounded-sm'>
@@ -59,15 +66,13 @@ const DesktopTopbar = () => {
           <div className='flex'>
             {categories.map((item) => (
               <div
-                className={`relative cursor-pointer font-bold hover:text-textActive text-sm px-5 ${
-                  item === 'Thể Thao' ? 'text-active' : ''
-                }`}
+                className={`relative cursor-pointer font-bold hover:text-textActive text-sm px-5 ${item === 'Thể Thao' ? 'text-textActive' : ''
+                  }`}
               >
                 {item}
                 <div
-                  className={`w-full absolute h-1 bg-textActive -bottom-1.5 left-0 ${
-                    item === 'Thể Thao' ? 'opacity-100 visible' : 'opacity-0 invisible'
-                  }`}
+                  className={`w-full absolute h-1 bg-textActive -bottom-1.5 left-0 ${item === 'Thể Thao' ? 'opacity-100 visible' : 'opacity-0 invisible'
+                    }`}
                   style={{ clipPath: 'polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%)' }}
                 ></div>
               </div>

@@ -24,7 +24,7 @@ export const getInitialAppContext: () => AppContextInterface = () => ({
   selectedTab: 'mo',
   setSelectedTab: () => null,
   reset: () => null,
-  theme: 'classic-6',
+  theme: 'modern-6',
   setTheme: () => null
 })
 const initialAppContext = getInitialAppContext()

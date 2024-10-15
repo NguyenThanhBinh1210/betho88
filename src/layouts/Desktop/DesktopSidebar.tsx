@@ -154,13 +154,13 @@ const DesktopSidebar = () => {
             <div className='absolute -bottom-2 left-1/2 -translate-x-1/2 w-[90%] h-[1.5px] bg-textActive'></div>
           </div>
           <div className='flex items-center justify-center  cursor-pointer relative '>
-            <p className='ml-1 t'>Bảng cược</p>
+            <p className='ml-1 text-textOpacity-200'>Bảng cược</p>
 
             {/* <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[90%] h-[1.5px] bg-textActive"></div> */}
           </div>
         </div>
       </div>
-      <div className='flex justify-between  items-center bg-gradient-to-b from-primary to-background px-2 py-1 rounded-md'>
+      <div className='flex justify-between  items-center bg-gradient-to-b from-primary to-background px-2 py-1 rounded'>
         <div className='flex gap-x-1.5 items-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -190,7 +190,7 @@ const DesktopSidebar = () => {
           />
         </svg>
       </div>
-      <div className='flex justify-between  items-center bg-gradient-to-b from-primary to-background px-2 py-1 rounded-md'>
+      <div className='flex justify-between  items-center bg-gradient-to-b from-primary to-background px-2 py-1 rounded'>
         <div className='flex gap-x-1.5 items-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -221,7 +221,7 @@ const DesktopSidebar = () => {
           />
         </svg>
       </div>
-      <div className='flex justify-between  items-center bg-gradient-to-b from-primary to-background px-2 py-1 rounded-md'>
+      <div className='flex justify-between  items-center bg-gradient-to-b from-primary to-background px-2 py-1 rounded'>
         <div className='flex gap-x-1.5 items-center'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -255,7 +255,7 @@ const DesktopSidebar = () => {
       <div>
         <div
           onClick={toggleAccordion}
-          className='flex justify-between  items-center bg-gradient-to-b from-primary to-background px-2 py-1 rounded-md'
+          className='flex justify-between  items-center bg-gradient-to-b from-primary to-background px-2 py-1 rounded'
         >
           <div className='flex gap-x-1.5 items-center'>
             <svg
@@ -281,9 +281,8 @@ const DesktopSidebar = () => {
           </svg>
         </div>
         <div
-          className={`transition-max-height duration-300 ease-in-out overflow-hidden ${
-            isOpen ? 'max-h-screen' : 'max-h-0'
-          }`}
+          className={`transition-max-height duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-screen' : 'max-h-0'
+            }`}
         >
           <Tabs tabs={tabs} defaultActiveIndex={0} />
           {betCategories.map((item) => (
@@ -380,7 +379,7 @@ export const AccordionWrap: React.FC<AccordionProps> = ({ title, items }) => {
     <div>
       <div
         onClick={toggleAccordion}
-        className='flex justify-between items-center bg-gradient-to-b from-primary to-background px-2 py-1 rounded-md cursor-pointer'
+        className='flex justify-between items-center bg-gradient-to-b from-primary to-background px-2 py-1 rounded cursor-pointer'
       >
         <div className='flex gap-x-1.5 items-center'>
           <svg
@@ -406,14 +405,13 @@ export const AccordionWrap: React.FC<AccordionProps> = ({ title, items }) => {
         </svg>
       </div>
       <div
-        className={`transition-max-height duration-300 ease-in-out overflow-hidden h-full ${
-          isOpen ? 'max-h-screen' : 'max-h-0'
-        }`}
+        className={`transition-max-height duration-300 ease-in-out overflow-hidden h-full ${isOpen ? 'max-h-screen' : 'max-h-0'
+          }`}
       >
         {items.map((item, index) => (
           <div
             key={index}
-            className='hover:bg-primary bg-secondary transition-all border-borderColor text-textOpacity-800 px-2 py-1.5 flex items-center gap-x-1 cursor-pointer'
+            className='hover:bg-primary hover:text-textOpacity-100 bg-secondary transition-all border-borderColor text-textOpacity-800 px-2 py-1.5 flex items-center gap-x-1 cursor-pointer'
           >
             <div className='w-[22px] h-[22px]'></div>
             {item}
