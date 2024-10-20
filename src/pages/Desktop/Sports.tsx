@@ -102,7 +102,6 @@ const MatchList = () => {
   }
 
   const handleToggleAll = () => {
-    // e.stopPropagation()
     setOpenItems((prev) => {
       const allClosed = Object.values(prev).every((isOpen) => !isOpen)
       const newState = Object.keys(prev).reduce<Record<string, boolean>>((acc, key) => {

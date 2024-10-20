@@ -1,16 +1,16 @@
 import { LayoutPropsInterface } from '~/types/base.type'
-import DesktopTopbar from './DesktopTopbar'
-import DesktopSidebar from './DesktopSidebar'
+import DesktopTopbar from './MainLayout/DesktopTopbar'
+import DesktopSidebar from './MainLayout/DesktopSidebar'
 import { useContext } from 'react'
 import { AppContext } from '~/contexts/app.context'
-import DesktopRightbar from './DesktopRightbar'
-import DesktopFooter from './DesktopFooter'
+import DesktopRightbar from './MainLayout/DesktopRightbar'
+import DesktopFooter from './MainLayout/DesktopFooter'
 const DesktopLayout = ({ children }: LayoutPropsInterface) => {
   const { theme } = useContext(AppContext)
 
   return (
     <div
-      className={`${theme} bg-background flex flex-col text-foreground-50 transition-all min-h-screen  min-w-[1400px]`}
+      className={`${theme} bg-background flex flex-col text-foreground-50 transition-all h-screen overflow-y-auto  min-w-[1400px]`}
     >
       <DesktopTopbar />
       <div className='flex flex-1'>

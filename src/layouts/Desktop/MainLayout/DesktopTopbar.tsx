@@ -20,18 +20,16 @@ const categories: string[] = [
 ]
 const bettingOddsTypes: string[] = ['Tỷ lệ cược Decimal', 'Tỷ lệ cược MALAY', 'Tỷ lệ cược HK']
 
-// const betOptions: string[] = [
-//   'Tất Cả',
-//   '1X2',
-//   'Tỷ Số Chính Xác',
-//   'Lẻ/Chẵn',
-//   'Tổng Số Bàn Thắng',
-//   'Hiệp 1/Toàn Trận',
-//   'Chẵn / Lẻ của Nửa trận/Toàn trận',
-//   'Bàn thắng Đầu/ Cuối',
-//   'Cá Cược Tổng Hợp',
-//   'Cược Thắng'
-// ];
+const openFullScreenWindow = (path: string) => {
+  const width = window.screen.width / 2 // Lấy chiều rộng của màn hình
+  const height = window.screen.height // Lấy chiều cao của màn hình
+
+  window.open(
+    `http://localhost:3000/Statement/${path}`,
+    '_blank',
+    `noopener,noreferrer,width=${width},height=${height},left=0,top=0,resizable=yes`
+  )
+}
 
 const DesktopTopbar = () => {
   const { setTheme } = useContext(AppContext)
@@ -103,13 +101,22 @@ const DesktopTopbar = () => {
             </div>
           </div>
           <div className='text-textOpacity-100 space-x-2 flex items-center'>
-            <button className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'>
+            <button
+              onClick={() => openFullScreenWindow('BetListApp')}
+              className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'
+            >
               Bảng cược
             </button>
-            <button className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'>
+            <button
+              onClick={() => openFullScreenWindow('AllStatement')}
+
+              className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'>
               Sao kê
             </button>
-            <button className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'>
+            <button
+              onClick={() => openFullScreenWindow('Result')}
+
+              className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'>
               Kết quả
             </button>
             <button className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'>

@@ -45,9 +45,8 @@ const Select: React.FC<SelectProps> = ({
   return (
     <div className={`${className} relative z-50`} ref={selectRef}>
       <button
-        className={`flex items-center border-[#ffffff52] text-foreground-200 border justify-between px-1.5 h-[28px] min-w-[128px] transition-all rounded-sm  ${
-          classNameButton ? classNameButton : 'hover:bg-selectHover min-w-[128px]'
-        }`}
+        className={`flex items-center border-[#ffffff52] text-foreground-200 border justify-between px-1.5 h-[28px] min-w-[128px] transition-all rounded-sm  ${classNameButton ? classNameButton : 'hover:bg-selectHover min-w-[128px]'
+          }`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className='flex items-center gap-x-1'>
@@ -68,11 +67,9 @@ const Select: React.FC<SelectProps> = ({
         </span>
       </button>
       <div
-        className={`absolute text-foreground-300 text-xs min-w-full w-max top-full rounded-sm border border-[#ffffff29] translate-y-1 ${
-          placement === 'right' && 'right-0'
-        } ${placement === 'left' && 'left-0'} bg-secondary transition-all duration-300 ease-out ${
-          isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
-        }`}
+        className={`absolute text-foreground-300 text-xs min-w-full w-max top-full rounded-sm border border-[#ffffff29] translate-y-1 ${placement === 'right' && 'right-0'
+          } ${placement === 'left' && 'left-0'} bg-secondary transition-all duration-300 ease-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+          }`}
       >
         <ul>
           {options.map((option) => (

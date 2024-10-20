@@ -15,8 +15,13 @@ import Follow from '~/pages/Mobile/Follow'
 import TopController from '~/layouts/manager/TopController'
 import DesktopLayout from '~/layouts/Desktop/DesktopLayout'
 import Sports from '~/pages/Desktop/Sports'
+import { useState, useEffect } from 'react'
+import BetListApp from '~/pages/Desktop/Statement/BetListApp'
+import ScreenLayout from '~/layouts/Desktop/ScreenLayout'
+import AllStatement from '~/pages/Desktop/Statement/AllStatement'
+import Result from '~/pages/Desktop/Result'
 
-const isMobile = false
+const MOBILE_BREAKPOINT = 768
 
 const pcRoutes = [
   {
@@ -34,6 +39,30 @@ const pcRoutes = [
       <DesktopLayout>
         <Sports />
       </DesktopLayout>
+    )
+  },
+  {
+    path: '/Statement/BetListApp',
+    element: (
+      <ScreenLayout>
+        <BetListApp />
+      </ScreenLayout>
+    )
+  },
+  {
+    path: '/Statement/AllStatement',
+    element: (
+      <ScreenLayout>
+        <AllStatement />
+      </ScreenLayout>
+    )
+  },
+  {
+    path: '/Statement/Result',
+    element: (
+      <ScreenLayout>
+        <Result />
+      </ScreenLayout>
     )
   },
   {
@@ -133,6 +162,17 @@ const mobileRoutes = [
 ]
 
 const useRouteElements = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= MOBILE_BREAKPOINT)
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   const routes = isMobile ? mobileRoutes : pcRoutes
   const routeElements = useRoutes(routes)
   return routeElements

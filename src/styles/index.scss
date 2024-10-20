@@ -57,21 +57,22 @@ body {
   border: 1px solid #5258bc;
 }
 
-body::-webkit-scrollbar {
-  width: 8px;
-}
+// body::-webkit-scrollbar {
+//   width: 8px;
+// }
 
-body::-webkit-scrollbar-track {
-  background-color: #0e1948;
-}
+// body::-webkit-scrollbar-track {
+//   background-color: #0e1948;
+// }
 
-body::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 50px;
-  border: 1px solid #5258bc;
-}
+// body::-webkit-scrollbar-thumb {
+//   background: transparent;
+//   border-radius: 50px;
+//   border: 1px solid #5258bc;
+// }
 
 @layer utilities {
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;

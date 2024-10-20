@@ -28,6 +28,27 @@ export default {
             'custom-gradient': 'linear-gradient(80deg, #053b61 60%, #051e30 100%)'
           },
           colors: {
+            screenTab: {
+              DEFAULT: '#061d2d',
+              hover: '#0a3a5c',
+              active: '#0f578a',
+              nonactive: '#0a2b43'
+            },
+            screenBg: {
+              thead: '#0a3a5c',
+              empty: '#075288',
+              DEFAULT: '#082e49'
+            },
+            screenBorder: {
+              thread: '#1d4969',
+              second: '#1a3447',
+              DEFAULT: '#1b3e57'
+            },
+            screenButton: {
+              active: '#0a3a5c',
+              hover: '#072a43',
+              DEFAULT: '#082237'
+            },
             textActive: '#19e5e6',
             background: '#041725',
             foreground: '#ffffff',
