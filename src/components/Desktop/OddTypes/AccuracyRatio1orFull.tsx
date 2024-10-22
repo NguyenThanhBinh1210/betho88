@@ -2,7 +2,6 @@ import AccordionInTab from '../AccordionInTab'
 import Select from '~/components/Select'
 import { useState } from 'react'
 import Chip from '~/components/Chip/Chip'
-import ChipDouple from '~/components/Chip/ChipDouple'
 const betOptions: string[] = [
   '1-0',
   '2-0',
@@ -63,16 +62,15 @@ const AccuracyRatio1orFull = () => {
           </div>
         </div>
         <div
-          className={`col-span-3 rounded border border-borderColor-900 text-textOpacity-900 px-1.5 overflow-hidden  transition-max-height ease-in-out duration-400 ${
-            isOpen ? 'max-h-screen py-2' : 'max-h-0'
-          }`}
+          className={`col-span-3 rounded border border-borderColor-900 text-textOpacity-900 px-1.5   transition-max-height ease-in-out duration-400 ${isOpen ? 'max-h-screen py-2 overflow-visible' : 'max-h-0 overflow-hidden'
+            }`}
         >
           <p className='text-center mb-2'>Tỷ Số Chính Xác Hiệp 1/Cả Trận</p>
           <div className='grid grid-cols-4 gap-1.5 text-xs'>
             {Array(30)
               .fill(0)
               .map((item) => (
-                <ChipDouple key={item} value='344' ratio='0-3 / 2-4'></ChipDouple>
+                <Chip key={item} value='344' ratio='0-3 / 2-4' isDouble></Chip>
               ))}
           </div>
         </div>

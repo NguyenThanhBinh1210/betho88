@@ -5,6 +5,7 @@ import IconBg from '../icons/IconBg'
 import { menu } from '~/constants/renaral.const'
 import { MailIcon } from '../icons/MailIcon'
 import { LockIcon } from '../icons/LockIcon'
+import DropdownHeader from '../DropdownHeader'
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
   const [showNav, setShowNav] = useState(false)
@@ -47,6 +48,8 @@ const Header = () => {
               </Link>
             </div>
             <div className='flex gap-2 items-center'>
+              <DropdownHeader />
+
               <Button className='text-white p-2 text-base rounded md:py-5 leading-4' size='sm' color='primary'>
                 Tham gia ngay
               </Button>
@@ -77,9 +80,8 @@ const Header = () => {
       <div
         onMouseEnter={() => setShowNav(true)}
         onMouseLeave={() => setShowNav(false)}
-        className={`bg-[#171a47] hidden lg:block w-full py-3 transition-all fixed z-10 ${
-          showNav ? 'opacity-100 visible -translate-y-0' : 'opacity-0 invisible -translate-y-1/2'
-        } `}
+        className={`bg-[#171a47] hidden lg:block w-full py-3 transition-all fixed z-10 ${showNav ? 'opacity-100 visible -translate-y-0' : 'opacity-0 invisible -translate-y-1/2'
+          } `}
       >
         <div className='max-w-[1342px] w-full mx-auto 2xl:px-0 grid grid-cols-7 gap-3'>
           {menu.map((item, index) => (
@@ -121,14 +123,12 @@ const Header = () => {
       <div
         onClick={() => setShowMenu(false)}
         style={{ zIndex: 20 }}
-        className={`transition-all ${
-          showMenu ? 'bg-opacity-20 visible' : 'bg-opacity-0 invisible'
-        } fixed top-0 left-0 w-full h-full bg-black  md:hidden`}
+        className={`transition-all ${showMenu ? 'bg-opacity-20 visible' : 'bg-opacity-0 invisible'
+          } fixed top-0 left-0 w-full h-full bg-black  md:hidden`}
       ></div>
       <div
-        className={`${
-          showMenu ? ' opacity-100 visible' : ' opacity-0 invisible'
-        } w-2/3 top-0 right-0 transition-all h-full bg-[#363c8f]  text-white fixed z-30 `}
+        className={`${showMenu ? ' opacity-100 visible' : ' opacity-0 invisible'
+          } w-2/3 top-0 right-0 transition-all h-full bg-[#363c8f]  text-white fixed z-30 `}
       >
         <div className='flex justify-end p-2 border-b border-[#464eb8]'>
           <Button onClick={() => setShowMenu(false)} isIconOnly variant='light' size='sm' className='md:hidden'>

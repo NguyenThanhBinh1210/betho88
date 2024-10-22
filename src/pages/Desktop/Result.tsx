@@ -18,6 +18,7 @@ const Result: React.FC = () => {
 import DatePicker from '~/components/DatePicker'
 import InfoIcon from '~/components/icons/InfoIcon'
 import { useState } from 'react'
+import Autocomplete from '~/components/Autocomplete'
 const betOptions: string[] = [
   '1-0',
   '2-0',
@@ -36,6 +37,8 @@ const betOptions: string[] = [
   '4-4',
   'AOS'
 ]
+const suggestions = ['Premier League', 'La Liga', 'Bundesliga', 'Serie A', 'Ligue 1'];
+
 const TabResult = () => {
   const { TabGroup } = BaseTab({
     values: ['Hôm Nay', 'Hôm Qua'],
@@ -50,7 +53,7 @@ const TabResult = () => {
           <DatePicker />
           <div className='w-[150px]'>{TabGroup}</div>
         </div>
-        <div className='flex gap-1'>
+        <div className='flex gap-1 flex-wrap'>
           <Select
             options={betOptions}
             classNameButton='text-textOpacity-200 !border-'
@@ -63,12 +66,13 @@ const TabResult = () => {
             placement='left'
             defaultValue='Bóng đá'
           ></Select>
+          <Autocomplete suggestions={suggestions} placement="left" />
         </div>
       </div>
       <div className='w-full overflow-auto text-xs '>
         <table className='table-auto w-full border-collapse   overflow-hidden'>
           <thead className=''>
-            <tr className='bg-screenBg-thead text-white'>
+            <tr className='bg-screenBg-thead text-textOpacity-thread'>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Thời Gian Bắt Đầu</th>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Trận Đấu</th>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Hiệp 1</th>

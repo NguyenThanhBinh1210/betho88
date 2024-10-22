@@ -14,7 +14,9 @@ interface AppContextInterface {
   selectedTab: string
   setSelectedTab: any
   theme: string
-  setTheme: any
+  setTheme: any,
+  isMobile: boolean,
+  setIsMobile: React.Dispatch<React.SetStateAction<boolean>>
 }
 export const getInitialAppContext: () => AppContextInterface = () => ({
   isAuthenticated: Boolean(!getAccessTokenFromLS()),
@@ -25,7 +27,9 @@ export const getInitialAppContext: () => AppContextInterface = () => ({
   setSelectedTab: () => null,
   reset: () => null,
   theme: 'modern-6',
-  setTheme: () => null
+  setTheme: () => null,
+  isMobile: false,
+  setIsMobile: () => null
 })
 const initialAppContext = getInitialAppContext()
 
@@ -36,6 +40,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<string>(initialAppContext.theme)
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(initialAppContext.isAuthenticated)
   const [profile, setProfile] = useState<Profile | null>(initialAppContext.profile)
+  const [isMobile, setIsMobile] = useState<boolean>(initialAppContext.isMobile)
   const reset = () => {
     setIsAuthenticated(false)
     setProfile(null)
@@ -52,7 +57,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setSelectedTab,
         selectedTab,
         theme,
-        setTheme
+        setTheme,
+        setIsMobile,
+        isMobile
       }}
     >
       {children}

@@ -25,7 +25,7 @@ const openFullScreenWindow = (path: string) => {
   const height = window.screen.height // Lấy chiều cao của màn hình
 
   window.open(
-    `http://localhost:3000/Statement/${path}`,
+    `http://localhost:3000/${path}`,
     '_blank',
     `noopener,noreferrer,width=${width},height=${height},left=0,top=0,resizable=yes`
   )
@@ -102,21 +102,21 @@ const DesktopTopbar = () => {
           </div>
           <div className='text-textOpacity-100 space-x-2 flex items-center'>
             <button
-              onClick={() => openFullScreenWindow('BetListApp')}
+              onClick={() => openFullScreenWindow('Statement/BetListApp')}
               className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'
             >
               Bảng cược
             </button>
             <button
-              onClick={() => openFullScreenWindow('AllStatement')}
-
-              className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'>
+              onClick={() => openFullScreenWindow('Statement/AllStatement')}
+              className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'
+            >
               Sao kê
             </button>
             <button
               onClick={() => openFullScreenWindow('Result')}
-
-              className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'>
+              className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'
+            >
               Kết quả
             </button>
             <button className=' hover:text-foreground transition-all hover:bg-background   h-[22px] px-2 rounded'>

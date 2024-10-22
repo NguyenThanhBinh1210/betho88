@@ -46,7 +46,7 @@ const Tab1 = () => {
       >
         <table className='table-auto w-full border-collapse mt-2 rounded-t rounded-sm overflow-hidden'>
           <thead className=''>
-            <tr className='bg-screenBg-thead text-white'>
+            <tr className='bg-screenBg-thead text-textOpacity-thread'>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Ngày</th>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Ghi Chú</th>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Lượng Tiền</th>
@@ -91,7 +91,7 @@ const Tab2 = () => {
       >
         <table className='table-auto w-full border-collapse mt-4 rounded-t rounded-sm overflow-hidden'>
           <thead className=''>
-            <tr className='bg-screenBg-thead text-white'>
+            <tr className='bg-screenBg-thead text-textOpacity-thread'>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Ngày</th>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Tổng số Vé cược</th>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Lượng tiền</th>
@@ -118,7 +118,7 @@ const Tab2 = () => {
       >
         <table className='table-auto w-full border-collapse mt-2 rounded-t rounded-sm overflow-hidden'>
           <thead className=''>
-            <tr className='bg-screenBg-thead text-white'>
+            <tr className='bg-screenBg-thead text-textOpacity-thread'>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Ngày</th>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Tổng số Vé cược</th>
               <th className='py-2 text-center border-r border-screenBorder-thread'>Lượng tiền</th>

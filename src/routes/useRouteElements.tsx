@@ -15,13 +15,17 @@ import Follow from '~/pages/Mobile/Follow'
 import TopController from '~/layouts/manager/TopController'
 import DesktopLayout from '~/layouts/Desktop/DesktopLayout'
 import Sports from '~/pages/Desktop/Sports'
-import { useState, useEffect } from 'react'
+import { useContext, useMemo } from 'react'
 import BetListApp from '~/pages/Desktop/Statement/BetListApp'
 import ScreenLayout from '~/layouts/Desktop/ScreenLayout'
 import AllStatement from '~/pages/Desktop/Statement/AllStatement'
 import Result from '~/pages/Desktop/Result'
-
-const MOBILE_BREAKPOINT = 768
+import MessageHistory from '~/pages/Desktop/MessageHistory'
+import AccountAndStatememt from '~/pages/Desktop/Preferences/AccountAndStatememt'
+import PreferencesLayout from '~/pages/Desktop/Preferences/PreferencesLayout'
+import PageAndOddsDisplay from '~/pages/Desktop/Preferences/PageAndOddsDisplay'
+import CustomizeSportsPriorityDisplay from '~/pages/Desktop/Preferences/CustomizeSportsPriorityDisplay'
+import { AppContext } from '~/contexts/app.context'
 
 const pcRoutes = [
   {
@@ -58,10 +62,48 @@ const pcRoutes = [
     )
   },
   {
-    path: '/Statement/Result',
+    path: '/Result',
     element: (
       <ScreenLayout>
         <Result />
+      </ScreenLayout>
+    )
+  },
+  {
+    path: '/Statement/MessageHistory',
+    element: (
+      <ScreenLayout>
+        <MessageHistory />
+      </ScreenLayout>
+    )
+  },
+  {
+    path: '/Preferences/AccountAndStatememt',
+    element: (
+      <ScreenLayout>
+        <PreferencesLayout>
+          <AccountAndStatememt />
+        </PreferencesLayout>
+      </ScreenLayout>
+    )
+  },
+  {
+    path: '/Preferences/PageAndOddsDisplay',
+    element: (
+      <ScreenLayout>
+        <PreferencesLayout>
+          <PageAndOddsDisplay />
+        </PreferencesLayout>
+      </ScreenLayout>
+    )
+  },
+  {
+    path: '/Preferences/CustomizeSportsPriorityDisplay',
+    element: (
+      <ScreenLayout>
+        <PreferencesLayout>
+          <CustomizeSportsPriorityDisplay />
+        </PreferencesLayout>
       </ScreenLayout>
     )
   },
@@ -162,20 +204,13 @@ const mobileRoutes = [
 ]
 
 const useRouteElements = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= MOBILE_BREAKPOINT)
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT)
-    }
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+  const { isMobile } = useContext(AppContext)
 
-  const routes = isMobile ? mobileRoutes : pcRoutes
-  const routeElements = useRoutes(routes)
-  return routeElements
+  const routes = useMemo(() => {
+    return isMobile ? mobileRoutes : pcRoutes
+  }, [isMobile])
+
+  return useRoutes(routes)
 }
 
 export default useRouteElements

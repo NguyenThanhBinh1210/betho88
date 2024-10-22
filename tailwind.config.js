@@ -85,6 +85,7 @@ export default {
               300: '#ffffff8a',
               800: '#ffffffde',
               900: '#ffffffb2',
+              thread: '#ffffff',
               DEFAULT: '#ffffffb3'
             },
             primary: {

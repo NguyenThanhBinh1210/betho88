@@ -5,9 +5,9 @@ import { LayoutPropsInterface } from '~/types/base.type'
 const HomeLayout = ({ children }: LayoutPropsInterface) => {
   return (
     <div className='bg-bgPrimary'>
-      <Header></Header>
+      <Header />
       <div className='pb-4'>{children}</div>
-      <Footer></Footer>
+      <Footer />
     </div>
   )
 }

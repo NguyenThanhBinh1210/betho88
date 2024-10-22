@@ -24,8 +24,8 @@ const ScreenHeader = () => {
           Sao Kê
         </Link>
         <Link
-          to={'/Statement/Result'}
-          className={`py-2 text-center rounded  transition-colors ${pathname === '/Statement/Result' ? 'bg-screenTab-active ' : 'bg-screenTab hover:bg-screenTab-hover'
+          to={'/Result'}
+          className={`py-2 text-center rounded  transition-colors ${pathname === '/Result' ? 'bg-screenTab-active ' : 'bg-screenTab hover:bg-screenTab-hover'
             }`}
         >
           Kết quả
@@ -38,10 +38,10 @@ const ScreenHeader = () => {
           Nhật Ký Tin Nhắn
         </Link>
         <Link
-          to={'/Statement/AccountAndStatememt'}
-          className={`py-2 text-center rounded  transition-colors ${pathname === '/Statement/AccountAndStatememt'
-            ? 'bg-screenTab-active '
-            : 'bg-screenTab hover:bg-screenTab-hover'
+          to={'/Preferences/AccountAndStatememt'}
+          className={`py-2 text-center rounded  transition-colors ${pathname === '/Preferences/AccountAndStatememt'
+              ? 'bg-screenTab-active '
+              : 'bg-screenTab hover:bg-screenTab-hover'
             }`}
         >
           Cài Đặt

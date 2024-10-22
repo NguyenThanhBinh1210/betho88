@@ -2,30 +2,24 @@ import React, { useState, useRef, useEffect } from 'react'
 import Calendar from './Calendar' // Sử dụng component Calendar đã tạo trước
 
 const DatePicker: React.FC = () => {
-  const today = new Date();
-  const [selectedDate, setSelectedDate] = useState<Date>(today);// Lưu trữ ngày đã chọn
+  const today = new Date()
+  const [selectedDate, setSelectedDate] = useState<Date>(today) // Lưu trữ ngày đã chọn
   const [showCalendar, setShowCalendar] = useState(false) // Điều khiển hiển thị lịch
   const inputRef = useRef<HTMLDivElement>(null) // Để kiểm tra sự kiện nhấp ra ngoài
-
-  // Hàm mở hoặc đóng lịch khi nhấp vào ô nhập
   const toggleCalendar = () => {
     setShowCalendar(!showCalendar)
   }
 
-  // Hàm xử lý khi chọn ngày từ Calendar
   const handleDateSelect = (date: Date) => {
     setSelectedDate(date)
-    // Không ẩn Calendar ngay lập tức để tránh lỗi
   }
 
-  // Hàm để kiểm tra và đóng lịch khi nhấp ra ngoài
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (inputRef.current && !inputRef.current.contains(event.target as Node)) {
         setShowCalendar(false)
       }
     }
-
     document.addEventListener('mousedown', handleClickOutside)
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
@@ -34,8 +28,6 @@ const DatePicker: React.FC = () => {
 
   return (
     <div className='relative inline-block z-[51] cursor-pointer' ref={inputRef}>
-      {/* Ô nhập ngày */}
-
       <div onClick={toggleCalendar} className='flex items-center border border-[#ffffff52] rounded-sm pr-1'>
         <input
           type='text'
@@ -57,7 +49,6 @@ const DatePicker: React.FC = () => {
           </svg>
         </span>
       </div>
-      {/* Hiển thị lịch khi nhấp vào ô nhập với animation */}
 
       <div
         className={`absolute mt-2 z-10 bg-white shadow-lg rounded-lg transition-all transform origin-top ${showCalendar ? 'scale-100 opacity-100 visible' : 'scale-95 opacity-0 invisible'
