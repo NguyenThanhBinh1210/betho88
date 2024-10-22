@@ -1,10 +1,10 @@
-import { useContext } from 'react'
+// import { useContext } from 'react'
 import logo from '~/assets/icons/logo_vn_w.svg'
 import Select from '~/components/Select'
 import Switch from '~/components/Switch'
-import { AppContext } from '~/contexts/app.context'
+// import { AppContext } from '~/contexts/app.context'
 const languages = ['English', '繁體中文', '日本語', 'Tiếng Việt']
-const themes = ['classic-1', 'classic-2', 'modern-1', 'modern-2', 'modern-3', 'modern-4', 'modern-5', 'modern-6']
+// const themes = ['classic-1', 'classic-2', 'modern-1', 'modern-2', 'modern-3', 'modern-4', 'modern-5', 'modern-6']
 const communicationOptions: string[] = ['Letstalk', 'Zalo', 'Hỗ trợ', 'Skype']
 
 const categories: string[] = [
@@ -32,10 +32,10 @@ const openFullScreenWindow = (path: string) => {
 }
 
 const DesktopTopbar = () => {
-  const { setTheme } = useContext(AppContext)
-  const handleChangeThemes = (theme: string) => {
-    setTheme(theme)
-  }
+  // const { setTheme } = useContext(AppContext)
+  // const handleChangeThemes = (theme: string) => {
+  //   setTheme(theme)
+  // }
   return (
     <header className='bg-primary text-[13px] h-[112px] sticky top-0 z-[55]'>
       <div className='flex border-b border-background'>
@@ -53,7 +53,7 @@ const DesktopTopbar = () => {
               đồng thời công ty sẽ không chịu trách nhiệm tất cả những thiệt hại gây ra ! Xin cám ơn quý khách .
             </div>
             <div className='space-x-2 flex'>
-              <Select options={themes} defaultValue='Màu sắc chủ đề' onChange={handleChangeThemes} />
+              {/* < Select options={themes} defaultValue='Màu sắc chủ đề' onChange={handleChangeThemes} /> */}
               <Select options={languages} defaultValue='Tiếng Việt' />
               {/* <Select options={betOptions} defaultValue="Tất Cả" classNameButton='bg-primary text-textOpacity h-[22px] min-w-0 gap-x-2 border-none' /> */}
               <button className='bg-background hover:text-foreground transition-all hover:bg-opacity-80 text-foreground-400 w-[128px] h-[28px] rounded-sm'>

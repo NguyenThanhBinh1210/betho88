@@ -1,9 +1,21 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState } from 'react'
+import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core'
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  rectSortingStrategy,
+  useSortable
+} from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 import BarIcon from '~/components/icons/BarIcon'
 
 interface Sport {
   key: string
   content: string
 }
+
 const initialSports: Sport[] = [
   { key: '1', content: 'Bóng đá' },
   { key: '2', content: 'Poker' },
@@ -73,29 +85,83 @@ const initialSports: Sport[] = [
   { key: '66', content: 'Olympic' }
 ]
 
-const CustomizeSportsPriorityDisplay = () => {
+const SortableItem = ({ id, content }: { id: string; content: string }) => {
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id })
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition
+  }
+
+  return (
+    <li
+      {...attributes}
+      {...listeners}
+      ref={setNodeRef}
+      style={style}
+      className='flex items-center gap-1 w-full mb-2 cursor-move'
+    >
+      <div className='flex-1 bg-screenBg-thead text-xs hover:bg-screenBg-empty border border-screenBorder rounded-sm flex justify-between py-0.5 px-1.5 items-center'>
+        <span className='line-clamp-1 max-w-40'>{content}</span>
+        <div className='flex-shrink-0 '>
+          <BarIcon />
+        </div>
+      </div>
+    </li>
+  )
+}
+
+const CustomizeSportsPriorityDisplay: React.FC = () => {
+  const [sports, setSports] = useState<Sport[]>(initialSports)
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates
+    })
+  )
+
+  const handleDragEnd = (event: any) => {
+    const { active, over } = event
+
+    if (active.id !== over.id) {
+      setSports((items) => {
+        const oldIndex = items.findIndex((item) => item.key === active.id)
+        const newIndex = items.findIndex((item) => item.key === over.id)
+        return arrayMove(items, oldIndex, newIndex)
+      })
+    }
+  }
+
+  const columns = 4
+  const itemsPerColumn = Math.ceil(sports.length / columns)
+
   return (
     <div>
       <div className='flex justify-between text-[13px]'>
         <h2 className='font-medium text-textOpacity-200 text-base'>Tùy chỉnh thứ tự các môn thể thao</h2>
       </div>
-      <div className='rounded-sm border border-screenBorder py-6 px-5 mt-2 text-[13px] text-textOpacity-200 space-y-2 '>
+      <div className='rounded-sm border border-screenBorder py-6 px-5 mt-2 text-[13px] text-textOpacity-200 space-y-2'>
         <p className='pb-4 border-b border-screenBorder'>
           Hãy kéo các môn thể thao để thay đổi thứ tự của menu các môn thể thao như mong muốn.
         </p>
-        <ul style={{ columnCount: 4, counterReset: 'section' }} className='gap-x-4 gap-y-1 pt-2'>
-          {initialSports.map((item, index) => (
-            <li className='flex items-center gap-1 w-full mb-2'>
-              <span className='w-5 text-end'>{index + 1}.</span>
-              <div className='flex-1 bg-screenBg-thead text-xs hover:bg-screenBg-empty border border-screenBorder rounded-sm flex justify-between py-0.5 px-1.5 items-center'>
-                <span>{item.content}</span>
-                <button>
-                  <BarIcon />
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+          <SortableContext items={sports.map((s) => s.key)} strategy={rectSortingStrategy}>
+            <div className='grid grid-cols-4 gap-x-4 gap-y-1 pt-2'>
+              {[...Array(columns)].map((_, columnIndex) => (
+                <ul key={columnIndex}>
+                  {sports.slice(columnIndex * itemsPerColumn, (columnIndex + 1) * itemsPerColumn).map((item, index) => (
+                    <SortableItem
+                      key={item.key}
+                      id={item.key}
+                      content={`${columnIndex * itemsPerColumn + index + 1}. ${item.content}`}
+                    />
+                  ))}
+                </ul>
+              ))}
+            </div>
+          </SortableContext>
+        </DndContext>
       </div>
     </div>
   )

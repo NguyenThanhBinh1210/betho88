@@ -1,5 +1,5 @@
 import Slider from 'react-slick'
-import './Sliders.css'
+import './Sliders.scss'
 
 interface SlideData {
   image: string

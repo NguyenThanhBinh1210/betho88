@@ -1,36 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-refresh/only-export-components */
 import { createContext, useState } from 'react'
 import { Profile } from '~/types/auth.type'
-import { clearLS, getAccessTokenFromLS, getProfileFromLS } from '~/utils/auth'
+import { clearLS } from '~/utils/auth'
+import { AppContextInterface, getInitialAppContext } from './appContextUtils'
 
-interface AppContextInterface {
-  isAuthenticated: boolean
-  setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>
-  profile: Profile | null
-  setProfile: React.Dispatch<React.SetStateAction<Profile | null>>
-  reset: () => void
-  selectedTab: string
-  setSelectedTab: any
-  theme: string
-  setTheme: any,
-  isMobile: boolean,
-  setIsMobile: React.Dispatch<React.SetStateAction<boolean>>
-}
-export const getInitialAppContext: () => AppContextInterface = () => ({
-  isAuthenticated: Boolean(!getAccessTokenFromLS()),
-  setIsAuthenticated: () => null,
-  profile: getProfileFromLS(),
-  setProfile: () => null,
-  selectedTab: 'mo',
-  setSelectedTab: () => null,
-  reset: () => null,
-  theme: 'modern-6',
-  setTheme: () => null,
-  isMobile: false,
-  setIsMobile: () => null
-})
 const initialAppContext = getInitialAppContext()
 
 export const AppContext = createContext<AppContextInterface>(initialAppContext)

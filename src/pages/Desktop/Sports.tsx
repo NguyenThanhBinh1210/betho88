@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import MatchAccordion from '~/components/Desktop/MatchAccordion'
-import MatchCard from '~/components/Desktop/MatchCard'
 import Select from '~/components/Select'
+import MatchCardSlider from '../../components/Desktop/MatchCardSlider'
+
 const betOptions: string[] = [
   'Tất Cả',
   '1X2',
@@ -24,7 +25,71 @@ const upcomingEventsArray = [
   '04:00 ~ 08:00',
   '08:00 ~ 12:00'
 ]
-const Sports = () => {
+const Sports: React.FC = () => {
+  const matches = [
+    {
+      id: '1',
+      league: 'Example League',
+      homeTeam: 'Home Team',
+      awayTeam: 'Away Team',
+      time: '12:00',
+      isLive: true,
+      handicap: { home: { value: '0', odds: 1.95 }, away: { value: '0', odds: 1.95 } },
+      overUnder: { over: { value: '2.5', odds: 1.9 }, under: { value: '2.5', odds: 1.9 } }
+    },
+    {
+      id: '2',
+      league: 'Another League',
+      homeTeam: 'Team A',
+      awayTeam: 'Team B',
+      time: '15:30',
+      isLive: false,
+      handicap: { home: { value: '0', odds: 1.95 }, away: { value: '0', odds: 1.95 } },
+      overUnder: { over: { value: '2.5', odds: 1.9 }, under: { value: '2.5', odds: 1.9 } }
+    },
+    {
+      id: '3',
+      league: 'Example League',
+      homeTeam: 'Home Team',
+      awayTeam: 'Away Team',
+      time: '12:00',
+      isLive: true,
+      handicap: { home: { value: '0', odds: 1.95 }, away: { value: '0', odds: 1.95 } },
+      overUnder: { over: { value: '2.5', odds: 1.9 }, under: { value: '2.5', odds: 1.9 } }
+    },
+    {
+      id: '4',
+      league: 'Another League',
+      homeTeam: 'Team A',
+      awayTeam: 'Team B',
+      time: '15:30',
+      isLive: false,
+      handicap: { home: { value: '0', odds: 1.95 }, away: { value: '0', odds: 1.95 } },
+      overUnder: { over: { value: '2.5', odds: 1.9 }, under: { value: '2.5', odds: 1.9 } }
+    },
+    {
+      id: '5',
+      league: 'Example League',
+      homeTeam: 'Home Team',
+      awayTeam: 'Away Team',
+      time: '12:00',
+      isLive: true,
+      handicap: { home: { value: '0', odds: 1.95 }, away: { value: '0', odds: 1.95 } },
+      overUnder: { over: { value: '2.5', odds: 1.9 }, under: { value: '2.5', odds: 1.9 } }
+    },
+    {
+      id: '6',
+      league: 'Another League',
+      homeTeam: 'Team A',
+      awayTeam: 'Team B',
+      time: '15:30',
+      isLive: false,
+      handicap: { home: { value: '0', odds: 1.95 }, away: { value: '0', odds: 1.95 } },
+      overUnder: { over: { value: '2.5', odds: 1.9 }, under: { value: '2.5', odds: 1.9 } }
+    },
+    // ... Thêm các trận đấu khác vào đây
+  ];
+
   return (
     <div className='py-2 text-[13px]'>
       <div className='px-2'>
@@ -65,8 +130,7 @@ const Sports = () => {
           </div>
         </div>
         <div className='flex items-center gap-x-2 border-b border-borderColor-900  py-1 mb-1'>
-          <MatchCard />
-          <MatchCard />
+          <MatchCardSlider matches={matches} />
         </div>
         <div className='flex items-center gap-x-2   py-1 mb-1'>
           <div className='space-x-2'>
